@@ -28,11 +28,12 @@ def check_res(result)
 	return false
 end
 def check_victory(array = [][])
+	# horizontal
 	for i in 0...array.length
 		ans = check_res(all_equal(array[i]))
 		return ans if ans
 	end
-
+	# diagonal
 	helper_arr = []
 	helper_arr2 = []
 
@@ -43,6 +44,16 @@ def check_victory(array = [][])
 
 	if check_res(all_equal(helper_arr)) || check_res(all_equal(helper_arr2))
 		return true
+	end
+	# vertical
+	array.first.length.times do |x|
+		helper_arr = []
+		for i in 0...array.length
+			helper_arr << array[i][x]
+		end
+		
+		ans = check_res(all_equal(helper_arr))
+		return ans if ans
 	end
 
 	return false
