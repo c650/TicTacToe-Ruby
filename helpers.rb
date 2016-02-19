@@ -51,7 +51,7 @@ def check_victory(array = [][])
 		for i in 0...array.length
 			helper_arr << array[i][x]
 		end
-		
+
 		ans = check_res(all_equal(helper_arr))
 		return ans if ans
 	end
@@ -69,6 +69,8 @@ def get_input(x_or_o, array)
 			else
 				break
 			end
+		else
+			puts "One or more of your specified coordinates is/are out of bounds."
 		end
 	end
 
