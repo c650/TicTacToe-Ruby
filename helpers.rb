@@ -60,17 +60,22 @@ def check_victory(array = [][])
 end
 def get_input(x_or_o, array)
 	while(true)
-		x,y = gets.chomp.gsub(/(|)/,'').split(',').map(&:to_i)
+		begin
+			x,y = gets.chomp.gsub(/(|)/,'').split(',').map(&:to_i)
 
-		if x < array.length && y < array.first.length
-			# check if coords are in bounds before accepting them
-			if array[x][y] != '-'
-				puts "Space Taken. Try again:"
+			if x < array.length && y < array.first.length
+				# check if coords are in bounds before accepting them
+				if array[x][y] != '-'
+					puts "Space Taken. Try again:"
+				else
+					break
+				end
 			else
-				break
+				puts "One or more of your specified coordinates is/are out of bounds."
 			end
-		else
-			puts "One or more of your specified coordinates is/are out of bounds."
+		rescue
+			puts "Invalid input. Try again..."
+			next
 		end
 	end
 

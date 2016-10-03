@@ -1,4 +1,4 @@
-require_relative './helpers.rb'
+require './helpers.rb'
 # these constants can be whatever you'd like
 GRID_HEIGHT = 3
 GRID_LENGTH = 3
